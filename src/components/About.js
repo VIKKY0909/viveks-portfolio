@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useRef, Suspense, useEffect } from 'react';
 import * as THREE from 'three';
 import { useNavigate } from 'react-router-dom';
+import { Particles } from "@tsparticles/react";
 
 
 

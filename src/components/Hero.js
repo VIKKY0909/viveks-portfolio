@@ -244,10 +244,10 @@ const Hero = () => {
 
         <div className="absolute inset-0 z-10 flex flex-col justify-center items-center md:items-end pointer-events-none px-4 md:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-extrabold mb-4 md:mb-6 text-gray-500">
+            <h1 className={`text-4xl md:text-6xl lg:text-8xl font-extrabold mb-4 md:mb-6 ${theme === 'dark' ? 'text-white' : 'text-gray-500'} neon-effect`}>
               <AnimatedText text="Vivek Vahane" />
             </h1>
-            <h2 className="text-xl md:text-2xl lg:text-4xl text-gray-500 mb-8 md:mb-12 font-semibold">
+            <h2 className={`text-xl md:text-2xl lg:text-4xl ${theme === 'dark' ? 'text-white' : 'text-gray-500'} mb-8 md:mb-12 font-semibold neon-effect`}>
               <AnimatedText text="Frontend Developer & Creative Technologist" delay={0.5} />
             </h2>
             <motion.button

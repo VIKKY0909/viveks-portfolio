@@ -59,7 +59,7 @@ const About = () => {
     },
     {
       title: "Digital Artistry",
-      icon: "🎨",
+      icon: "���",
       description: "Crafting seamless experiences where code meets creativity",
       fact: '"Technology is best when it brings people together." - Matt Mullenweg'
     }
@@ -487,7 +487,7 @@ const About = () => {
           y: -2
         }}
         whileTap={{ scale: 0.98 }}
-        onClick={() => navigate('/about')}
+        onClick={() => navigate('/contact')}
       >
         <span className="flex items-center gap-2">
           Connect With Me
@@ -565,15 +565,15 @@ const About = () => {
           </Canvas>
           
           <motion.div 
-            className={`absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center z-10 ${isMobile ? 'w-full px-4 ml-20' : 'w-3/4 px-8'} ${isMobile ? 'text-sm' : 'text-base'} ${isMobile ? 'max-w-xs' : 'max-w-lg'}`}
+            className={`absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center z-10 ${isMobile ? 'w-full px-4' : 'w-3/4 px-8'} ${isMobile ? 'text-sm' : 'text-base'} max-w-full`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: loading3D ? 0 : 1, y: loading3D ? 20 : 0 }}
             transition={{ delay: 2.5 }}
           >
-            <h1 className={`${isMobile ? 'text-2xl' : 'text-3xl lg:text-5xl'} font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-4`}>
+            <h1 className={`${isMobile ? 'text-2xl mr-24' : 'text-3xl lg:text-5xl'} font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-4`}>
               Digital Craftsman
             </h1>
-            <p className={`${isMobile ? 'text-sm' : 'text-base lg:text-lg'} text-gray-300 ${isMobile ? 'text-xs' : 'text-base'} ${isMobile ? 'max-w-xs' : 'max-w-lg'} mx-auto`}>
+            <p className={`${isMobile ? 'text-sm mr-96' : 'text-base lg:text-lg'} text-gray-300 mx-auto`}>
               Blending technology and creativity to build immersive digital experiences
             </p>
           </motion.div>

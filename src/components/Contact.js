@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { Stars, OrbitControls } from '@react-three/drei';
-import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter, FaCode, FaUtensils, FaBook } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -213,7 +213,7 @@ const Contact = () => {
               </h2>
               <div className="space-y-6">
                 <motion.a
-                  href="https://github.com/yourusername"
+                  href="https://github.com/VIKKY0909"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block p-4 bg-gray-800/30 border border-purple-500/20 rounded-lg hover:bg-gray-800/50 transition-all group"
@@ -233,7 +233,7 @@ const Contact = () => {
                 </motion.a>
 
                 <motion.a
-                  href="https://linkedin.com/in/yourusername"
+                  href="https://linkedin.com/in/vahane-vivek"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block p-4 bg-gray-800/30 border border-purple-500/20 rounded-lg hover:bg-gray-800/50 transition-all group"
@@ -252,28 +252,10 @@ const Contact = () => {
                   </div>
                 </motion.a>
 
-                <motion.a
-                  href="https://twitter.com/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block p-4 bg-gray-800/30 border border-purple-500/20 rounded-lg hover:bg-gray-800/50 transition-all group"
-                  whileHover={{ x: 10, backgroundColor: 'rgba(107, 70, 193, 0.2)' }}
-                >
-                  <div className="flex items-center space-x-4">
-                    <FaTwitter className="text-3xl text-purple-400 group-hover:text-purple-300 transition-colors" />
-                    <div>
-                      <div className="font-medium group-hover:text-purple-300 transition-colors">
-                        Thought Stream
-                      </div>
-                      <div className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                        Follow my digital transmissions
-                      </div>
-                    </div>
-                  </div>
-                </motion.a>
+                
 
                 <motion.a
-                  href="mailto:your.email@example.com"
+                  href="mailto:vikivahane.email@example.com"
                   className="block p-4 bg-gray-800/30 border border-purple-500/20 rounded-lg hover:bg-gray-800/50 transition-all group"
                   whileHover={{ x: 10, backgroundColor: 'rgba(107, 70, 193, 0.2)' }}
                 >
@@ -303,6 +285,102 @@ const Contact = () => {
                 All quantum channels operational
               </p>
             </motion.div>
+          </motion.div>
+
+          {/* Competitive Platforms */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-8 mt-12 p-6 bg-gray-800/50 rounded-lg border border-purple-500/30"
+          >
+            <h2 className="text-3xl font-bold text-white mb-4">
+              <span className="text-purple-400">~/</span> Competitive Platforms
+            </h2>
+            <p className="text-lg text-purple-300 mb-6">
+              Join me on these platforms to sharpen your skills, tackle challenges, and connect with a vibrant coding community!
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <motion.a
+                href="https://www.hackerrank.com/profile/vikivahane"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-4 bg-gray-700/70 border border-purple-500/20 rounded-lg hover:bg-gray-700/90 transition-all group shadow-lg"
+                whileHover={{ scale: 1.05, backgroundColor: 'rgba(107, 70, 193, 0.3)' }}
+              >
+                <div className="flex items-center space-x-4">
+                  <FaGithub className="text-4xl text-purple-400" /> {/* Replace with HackerRank icon */}
+                  <div>
+                    <div className="font-semibold text-xl group-hover:text-purple-300 transition-colors">
+                      HackerRank
+                    </div>
+                    <div className="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">
+                      Code your way to success with challenges and competitions.
+                    </div>
+                  </div>
+                </div>
+              </motion.a>
+
+              <motion.a
+                href="https://leetcode.com/u/VIKKY0909/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-4 bg-gray-700/70 border border-purple-500/20 rounded-lg hover:bg-gray-700/90 transition-all group shadow-lg"
+                whileHover={{ scale: 1.05, backgroundColor: 'rgba(107, 70, 193, 0.3)' }}
+              >
+                <div className="flex items-center space-x-4">
+                  <FaCode className="text-4xl text-purple-400" /> {/* Replace with LeetCode icon */}
+                  <div>
+                    <div className="font-semibold text-xl group-hover:text-purple-300 transition-colors">
+                      LeetCode
+                    </div>
+                    <div className="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">
+                      Master your coding skills with a variety of problems.
+                    </div>
+                  </div>
+                </div>
+              </motion.a>
+
+              <motion.a
+                href="https://www.codechef.com/users/zeal_trail_49"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-4 bg-gray-700/70 border border-purple-500/20 rounded-lg hover:bg-gray-700/90 transition-all group shadow-lg"
+                whileHover={{ scale: 1.05, backgroundColor: 'rgba(107, 70, 193, 0.3)' }}
+              >
+                <div className="flex items-center space-x-4">
+                  <FaUtensils className="text-4xl text-purple-400" /> {/* Replace with CodeChef icon */}
+                  <div>
+                    <div className="font-semibold text-xl group-hover:text-purple-300 transition-colors">
+                      CodeChef
+                    </div>
+                    <div className="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">
+                      Cook up some code challenges and compete with others.
+                    </div>
+                  </div>
+                </div>
+              </motion.a>
+
+              <motion.a
+                href="https://www.geeksforgeeks.org/user/vikivahane/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-4 bg-gray-700/70 border border-purple-500/20 rounded-lg hover:bg-gray-700/90 transition-all group shadow-lg"
+                whileHover={{ scale: 1.05, backgroundColor: 'rgba(107, 70, 193, 0.3)' }}
+              >
+                <div className="flex items-center space-x-4">
+                  <FaBook className="text-4xl text-purple-400" /> {/* Replace with GeeksforGeeks icon */}
+                  <div>
+                    <div className="font-semibold text-xl group-hover:text-purple-300 transition-colors">
+                      GeeksforGeeks
+                    </div>
+                    <div className="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">
+                      Learn and conquer coding concepts with tutorials and articles.
+                    </div>
+                  </div>
+                </div>
+              </motion.a>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -6,6 +6,8 @@ import tnm from'../assets/TNM.png';
 import schl from '../assets/school.png';
 import motivation from '../assets/motivation.png';
 import port from '../assets/port.png';
+import { useNavigate } from 'react-router-dom';
+
 // Particle component for mouse-reactive particles
 const Particles = ({ mouseX, mouseY }) => {
   const particlesRef = useRef();
@@ -35,6 +37,7 @@ const Projects = () => {
   const [letterIndex, setLetterIndex] = useState(0);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const navigate= useNavigate();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -466,6 +469,7 @@ const Projects = () => {
             style={{
               textShadow: '0 0 10px rgba(255,255,255,0.5)',
             }}
+            onClick={()=>{navigate('/contact')}}
           >
             Contact Me
           </motion.button>

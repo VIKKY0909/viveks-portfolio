@@ -7,7 +7,7 @@ import About from './components/About';
 import Projects from './components/ProjectPage';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
-import MyDigitalFootprint from './components/MyDigitalFootprint'; // Added new component
+
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/projects" element={<Projects />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/my-digital-footprint" element={<MyDigitalFootprint />} /> {/* Added new route */}
+         
         </Routes>
       </div>
     </Router>

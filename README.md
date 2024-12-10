@@ -17,7 +17,7 @@ List the software and tools required to run the project. For example:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/VIKKY0909/viveks-portfolio
    ```
 2. Navigate to the project directory:
    ```bash
@@ -54,20 +54,8 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 
 Provide examples of how to use the project. Include code snippets, screenshots, or any other relevant information.
 
-## Contributing
-
-If you would like to contribute to this project, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/YourFeature`).
-3. Make your changes and commit them (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
-5. Open a pull request.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
-
-- Mention any resources, libraries, or individuals that helped you in the development of this project.

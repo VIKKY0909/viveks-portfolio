@@ -7,7 +7,7 @@ import About from './components/About';
 import Projects from './components/ProjectPage';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
-
+import ImageDisplay from './components/ImageDisplay';
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/projects" element={<Projects />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/contact" element={<Contact />} />
-         
+          <Route path="/portfolio-preview" element={<ImageDisplay />} />
         </Routes>
       </div>
     </Router>

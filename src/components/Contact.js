@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { Stars, OrbitControls } from '@react-three/drei';
 import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter, FaCode, FaUtensils, FaBook } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -59,6 +60,51 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 relative overflow-hidden">
+      <Helmet>
+        <script type="application/ld+json">
+          {`{
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Vivek Vahane",
+            "description": "Reach out to Vivek Vahane, a Frontend Developer & Creative Technologist. Contact him through email, LinkedIn, or explore his competitive programming platforms.",
+            "url": "https://vahane-vivek-portfolio.vercel.app/contact",
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://vahane-vivek-portfolio.vercel.app"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Contact",
+                  "item": "https://vahane-vivek-portfolio.vercel.app/contact"
+                }
+              ]
+            },
+            "mainEntity": {
+              "@type": "Person",
+              "name": "Vivek Vahane",
+              "jobTitle": "Frontend Developer & Creative Technologist",
+              "url": "https://vahane-vivek-portfolio.vercel.app",
+              "sameAs": [
+                "https://github.com/VIKKY0909",
+                "https://linkedin.com/in/vahane-vivek",
+                "https://leetcode.com/u/VIKKY0909/",
+                "https://www.hackerrank.com/profile/vikivahane"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "email": "vikivahane@gmail.com"
+              }
+            }
+          }`}
+        </script>
+      </Helmet>
       {/* Background Canvas */}
       <div className="absolute inset-0">
         <Canvas>

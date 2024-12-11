@@ -3,8 +3,9 @@ import { Float, Stars, OrbitControls, PerspectiveCamera, Environment, useGLTF, P
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useRef, Suspense, useEffect } from 'react';
 import * as THREE from 'three';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Particles } from "@tsparticles/react";
+import { Helmet } from 'react-helmet';
 
 
 
@@ -507,211 +508,256 @@ const About = () => {
   );
 
   return (
-    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-black to-purple-900' : 'bg-gradient-to-b from-gray-100 to-purple-200'} relative overflow-hidden transition-all duration-700`}>
-      {/* Snow overlay */}
-      <div className="fixed inset-0 pointer-events-none z-50">
-        {snowflakesRef.current.map((_, i) => (
-          <div
-            key={i}
-            className="snowflake absolute rounded-full bg-white opacity-80"
-            style={{
-              width: `${snowflakesRef.current[i].size}px`,
-              height: `${snowflakesRef.current[i].size}px`,
-              filter: 'blur(1px)',
-            }}
-          />
-        ))}
-      </div>
+    <>
+      <Helmet>
+        <meta charset="utf-8" />
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="description" content="About Vivek Vahane - A Frontend Developer, Creative Technologist, and Web Enthusiast specializing in React, Tailwind, and immersive web experiences. Get to know me and my journey in tech." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://vahane-vivek-portfolio.vercel.app/about" />
+        
 
-      <AnimatePresence mode="wait">
-        {loading3D && <LoadingSpinner />}
-      </AnimatePresence>
+        {/* Open Graph (OG) Meta Tags for Social Sharing */}
+        <meta property="og:title" content="About Vivek Vahane | Frontend Developer & Creative Technologist" />
+        <meta property="og:description" content="Get to know Vivek Vahane, a frontend developer specializing in React, immersive web experiences, and 3D UI development. Discover his journey, skills, and projects." />
+        <meta property="og:image" content="https://vahane-vivek-portfolio.vercel.app/images/portfolio-preview.png" />
+        <meta property="og:url" content="https://vahane-vivek-portfolio.vercel.app/about" />
+        <meta property="og:type" content="website" />
 
-      <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2'} min-h-screen`}>
-        {/* Left Section - 3D Portrait */}
-        <div className={`relative ${isMobile ? 'h-[40vh]' : 'h-[50vh] lg:h-screen'}`}>
-          <Canvas>
-            <PerspectiveCamera makeDefault position={[0, 0, isMobile ? 4 : 5]} />
-            <OrbitControls 
-              enableZoom={false} 
-              enablePan={false}
-              maxPolarAngle={Math.PI / 2}
-              minPolarAngle={Math.PI / 2.5}
+        {/* Twitter Card for sharing */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Vivek Vahane | Frontend Developer & Creative Technologist" />
+        <meta name="twitter:description" content="Explore the world of Vivek Vahane - a Frontend Developer specializing in modern, 3D, and immersive web experiences. Discover his skills and projects." />
+        <meta name="twitter:image" content="https://vahane-vivek-portfolio.vercel.app/images/portfolio-preview.png" />
+
+        <title>About Me | Vivek Vahane - Frontend Developer</title>
+      </Helmet>
+
+      {/* Structured Data (JSON-LD) */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "About Me",
+          "description": "A brief description highlighting your expertise as a Frontend and Full Stack Developer.",
+          "author": {
+            "@type": "Person",
+            "name": "Vivek Vahane",
+            "jobTitle": "Frontend Developer",
+            "skills": ["React", "Tailwind", "JavaScript", "CSS", "HTML"]
+          }
+        })}
+      </script>
+
+      <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-b from-black to-purple-900' : 'bg-gradient-to-b from-gray-100 to-purple-200'} relative overflow-hidden transition-all duration-700`}>
+        {/* Snow overlay */}
+        <div className="fixed inset-0 pointer-events-none z-50">
+          {snowflakesRef.current.map((_, i) => (
+            <div
+              key={i}
+              className="snowflake absolute rounded-full bg-white opacity-80"
+              style={{
+                width: `${snowflakesRef.current[i].size}px`,
+                height: `${snowflakesRef.current[i].size}px`,
+                filter: 'blur(1px)',
+              }}
             />
-            <Suspense fallback={null}>
-              <Environment preset={theme === 'dark' ? "night" : "sunset"} />
-              <ambientLight intensity={theme === 'dark' ? 0.3 : 0.6} />
-              <pointLight position={[10, 10, 10]} intensity={1.5} />
-              <spotLight
-                position={[-10, 10, -10]}
-                angle={0.3}
-                penumbra={1}
-                intensity={theme === 'dark' ? 1 : 0.5}
-                color={theme === 'dark' ? "#4B0082" : "#9F2B68"}
-              />
-              <SpinningStars />
-              <group>
-                <FloatingPortrait />
-                <Points 
-                  count={isMobile ? 1000 : 2000}
-                  size={isMobile ? 0.01 : 0.015}
-                  color={theme === 'dark' ? "#4B0082" : "#9F2B68"}
-                  opacity={0.5}
-                  sizeAttenuation={true}
-                  depthWrite={false}
-                />
-              </group>
-            </Suspense>
-          </Canvas>
-          
-          <motion.div 
-            className={`absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center z-10 ${isMobile ? 'w-full px-4' : 'w-3/4 px-8'} ${isMobile ? 'text-sm' : 'text-base'} max-w-full`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: loading3D ? 0 : 1, y: loading3D ? 20 : 0 }}
-            transition={{ delay: 2.5 }}
-          >
-            <h1 className={`${isMobile ? 'text-2xl mr-24' : 'text-3xl lg:text-5xl'} font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-4`}>
-              Digital Craftsman
-            </h1>
-            <p className={`${isMobile ? 'text-sm mr-96' : 'text-base lg:text-lg'} text-gray-300 mx-auto`}>
-              Blending technology and creativity to build immersive digital experiences
-            </p>
-          </motion.div>
+          ))}
         </div>
 
-        {/* Right Section - Content */}
-        <div className={`relative ${isMobile ? 'p-4' : 'p-8 lg:p-16'} overflow-y-auto`}>
-          {/* Philosophy Section */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: loading3D ? 0 : 1 }}
-            transition={{ delay: 2.5 }}
-            className="mb-16"
-          >
-            <h2 className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-white mb-8`}>Personal Philosophy</h2>
-            <div className={`grid ${isMobile ? 'grid-cols-1 gap-4' : 'grid-cols-1 md:grid-cols-2 gap-6'} mb-12`}>
-              {philosophies.map((philosophy, index) => (
-                <PhilosophyCard key={index} philosophy={philosophy} index={index} />
-              ))}
-            </div>
+        <AnimatePresence mode="wait">
+          {loading3D && <LoadingSpinner />}
+        </AnimatePresence>
+
+        <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2'} min-h-screen`}>
+          {/* Left Section - 3D Portrait */}
+          <div className={`relative ${isMobile ? 'h-[40vh]' : 'h-[50vh] lg:h-screen'}`}>
+            <Canvas>
+              <PerspectiveCamera makeDefault position={[0, 0, isMobile ? 4 : 5]} />
+              <OrbitControls 
+                enableZoom={false} 
+                enablePan={false}
+                maxPolarAngle={Math.PI / 2}
+                minPolarAngle={Math.PI / 2.5}
+              />
+              <Suspense fallback={null}>
+                <Environment preset={theme === 'dark' ? "night" : "sunset"} />
+                <ambientLight intensity={theme === 'dark' ? 0.3 : 0.6} />
+                <pointLight position={[10, 10, 10]} intensity={1.5} />
+                <spotLight
+                  position={[-10, 10, -10]}
+                  angle={0.3}
+                  penumbra={1}
+                  intensity={theme === 'dark' ? 1 : 0.5}
+                  color={theme === 'dark' ? "#4B0082" : "#9F2B68"}
+                />
+                <SpinningStars />
+                <group>
+                  <FloatingPortrait />
+                  <Points 
+                    count={isMobile ? 1000 : 2000}
+                    size={isMobile ? 0.01 : 0.015}
+                    color={theme === 'dark' ? "#4B0082" : "#9F2B68"}
+                    opacity={0.5}
+                    sizeAttenuation={true}
+                    depthWrite={false}
+                  />
+                </group>
+              </Suspense>
+            </Canvas>
             
-            {/* Scrolling Mission Statement */}
-            <div className="relative overflow-hidden h-16 bg-gradient-to-r from-purple-900/50 to-indigo-900/50 rounded-xl">
-              <motion.p
-                className={`absolute whitespace-nowrap ${isMobile ? 'text-base' : 'text-lg'} text-purple-200 py-4`}
-                animate={{
-                  x: ["100%", "-100%"]
-                }}
-                transition={{
-                  duration: isMobile ? 15 : 20,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              >
-                "Crafting digital experiences that inspire wonder and push the boundaries of what's possible. Every line of code is an opportunity to create something extraordinary." 
-              </motion.p>
-            </div>
-          </motion.div>
+            <motion.div 
+              className={`absolute bottom-20 left-1/2 transform -translate-x-1/2 text-center z-10 ${isMobile ? 'w-full px-4' : 'w-3/4 px-8'} ${isMobile ? 'text-sm' : 'text-base'} max-w-full`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: loading3D ? 0 : 1, y: loading3D ? 20 : 0 }}
+              transition={{ delay: 2.5 }}
+            >
+              <h1 className={`${isMobile ? 'text-3xl' : 'text-4xl lg:text-5xl'} font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-2`}>
+                Digital Craftsman
+              </h1>
+              <p className={`${isMobile ? 'text-base' : 'text-lg'} text-gray-300 mx-auto`}>
+                Blending technology and creativity to build immersive digital experiences
+              </p>
+            </motion.div>
+          </div>
 
-          {/* Skills Section */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: loading3D ? 0 : 1 }}
-            transition={{ delay: 2.5 }}
-            className="mb-16"
-          >
-            <h2 className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-white mb-8`}>Expertise</h2>
-            {Object.entries(skills).map(([category, skillList], categoryIndex) => (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: categoryIndex * 0.2 }}
-                className="mb-12"
-              >
-                <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} text-purple-300 mb-6`}>{category}</h3>
-                <div className="flex flex-wrap justify-center">
-                  {skillList.map((skill) => (
-                    <CircularProgress
-                      key={skill.name}
-                      percentage={skill.proficiency}
-                      icon={skill.icon}
-                      name={skill.name}
-                      description={skill.description}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
 
-          {/* Experience Timeline */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: loading3D ? 0 : 1 }}
-            transition={{ delay: 2.5 }}
-            className="relative"
-          >
-            <h2 className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-white mb-8`}>Experience</h2>
-            <div className="space-y-8">
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={exp.year}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="relative"
-                  onClick={() => setExpandedCard(expandedCard === index ? null : index)}
+          {/* Right Section - Content */}
+          <div className={`relative ${isMobile ? 'p-4' : 'p-8 lg:p-16'} overflow-y-auto`}>
+            {/* Philosophy Section */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: loading3D ? 0 : 1 }}
+              transition={{ delay: 2.5 }}
+              className="mb-16"
+            >
+              <h2 className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-white mb-8`}>Personal Philosophy</h2>
+              <div className={`grid ${isMobile ? 'grid-cols-1 gap-4' : 'grid-cols-1 md:grid-cols-2 gap-6'} mb-12`}>
+                {philosophies.map((philosophy, index) => (
+                  <PhilosophyCard key={index} philosophy={philosophy} index={index} />
+                ))}
+              </div>
+              
+              {/* Scrolling Mission Statement */}
+              <div className="relative overflow-hidden h-16 bg-gradient-to-r from-purple-900/50 to-indigo-900/50 rounded-xl">
+                <motion.p
+                  className={`absolute whitespace-nowrap ${isMobile ? 'text-base' : 'text-lg'} text-purple-200 py-4`}
+                  animate={{
+                    x: ["100%", "-100%"]
+                  }}
+                  transition={{
+                    duration: isMobile ? 15 : 20,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
                 >
-                  <motion.div 
-                    className={`backdrop-blur-lg bg-white/5 rounded-2xl ${isMobile ? 'p-4' : 'p-6'} border border-white/10 cursor-pointer
-                      ${expandedCard === index ? 'border-purple-500' : 'hover:border-white/20'}`}
-                    animate={{ height: expandedCard === index ? 'auto' : 'auto' }}
-                  >
-                    <div className={`flex items-center gap-4 mb-4 ${isMobile ? 'flex-col text-center' : ''}`}>
-                      <div className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center`}>
-                        <span className="text-white font-bold">{exp.year}</span>
-                      </div>
-                      <div>
-                        <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} font-bold text-white`}>{exp.role}</h3>
-                        <h4 className="text-purple-400">{exp.company}</h4>
-                      </div>
-                    </div>
-                    
-                    <AnimatePresence>
-                      {expandedCard === index && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                        >
-                          <p className={`text-gray-300 mb-4 ${isMobile ? 'text-sm' : ''}`}>{exp.description}</p>
-                          <ul className={`list-disc list-inside text-gray-300 mb-4 ${isMobile ? 'text-sm' : ''}`}>
-                            {exp.achievements.map((achievement, i) => (
-                              <li key={i} className="mb-2">{achievement}</li>
-                            ))}
-                          </ul>
-                          <div className="flex flex-wrap gap-2">
-                            {exp.tech.map((tech) => (
-                              <span key={tech} className={`px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 ${isMobile ? 'text-xs' : 'text-sm'}`}>
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
+                  "Crafting digital experiences that inspire wonder and push the boundaries of what's possible. Every line of code is an opportunity to create something extraordinary." 
+                </motion.p>
+              </div>
+            </motion.div>
+
+            {/* Skills Section */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: loading3D ? 0 : 1 }}
+              transition={{ delay: 2.5 }}
+              className="mb-16"
+            >
+              <h2 className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-white mb-8`}>Expertise</h2>
+              {Object.entries(skills).map(([category, skillList], categoryIndex) => (
+                <motion.div
+                  key={category}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: categoryIndex * 0.2 }}
+                  className="mb-12"
+                >
+                  <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} text-purple-300 mb-6`}>{category}</h3>
+                  <div className="flex flex-wrap justify-center">
+                    {skillList.map((skill) => (
+                      <CircularProgress
+                        key={skill.name}
+                        percentage={skill.proficiency}
+                        icon={skill.icon}
+                        name={skill.name}
+                        description={skill.description}
+                      />
+                    ))}
+                  </div>
                 </motion.div>
               ))}
-            </div>
-          </motion.div>
-          
-          {/* Add CTA at the end */}
-          <ConnectCTA />
+            </motion.div>
+
+            {/* Experience Timeline */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: loading3D ? 0 : 1 }}
+              transition={{ delay: 2.5 }}
+              className="relative"
+            >
+              <h2 className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-white mb-8`}>Experience</h2>
+              <div className="space-y-8">
+                {experiences.map((exp, index) => (
+                  <motion.div
+                    key={exp.year}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                    className="relative"
+                    onClick={() => setExpandedCard(expandedCard === index ? null : index)}
+                  >
+                    <motion.div 
+                      className={`backdrop-blur-lg bg-white/5 rounded-2xl ${isMobile ? 'p-4' : 'p-6'} border border-white/10 cursor-pointer
+                        ${expandedCard === index ? 'border-purple-500' : 'hover:border-white/20'}`}
+                      animate={{ height: expandedCard === index ? 'auto' : 'auto' }}
+                    >
+                      <div className={`flex items-center gap-4 mb-4 ${isMobile ? 'flex-col text-center' : ''}`}>
+                        <div className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center`}>
+                          <span className="text-white font-bold">{exp.year}</span>
+                        </div>
+                        <div>
+                          <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} font-bold text-white`}>{exp.role}</h3>
+                          <h4 className="text-purple-400">{exp.company}</h4>
+                        </div>
+                      </div>
+                      
+                      <AnimatePresence>
+                        {expandedCard === index && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                          >
+                            <p className={`text-gray-300 mb-4 ${isMobile ? 'text-sm' : ''}`}>{exp.description}</p>
+                            <ul className={`list-disc list-inside text-gray-300 mb-4 ${isMobile ? 'text-sm' : ''}`}>
+                              {exp.achievements.map((achievement, i) => (
+                                <li key={i} className="mb-2">{achievement}</li>
+                              ))}
+                            </ul>
+                            <div className="flex flex-wrap gap-2">
+                              {exp.tech.map((tech) => (
+                                <span key={tech} className={`px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+            
+            {/* Add CTA at the end */}
+            <ConnectCTA />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

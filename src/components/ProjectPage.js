@@ -6,8 +6,8 @@ import tnm from'../assets/TNM.png';
 import schl from '../assets/school.png';
 import motivation from '../assets/motivation.png';
 import port from '../assets/port.png';
-import port from '../assets/zenith.png';
-import port from '../assets/notewise.png';
+import zenith from '../assets/zenith.png';
+import notewise from '../assets/notewise.png';
 import { useNavigate } from 'react-router-dom';
 
 // Particle component for mouse-reactive particles

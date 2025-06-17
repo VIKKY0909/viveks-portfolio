@@ -7,7 +7,8 @@ import schl from '../assets/school.png';
 import motivation from '../assets/motivation.png';
 import port from '../assets/port.png';
 import zenith from '../assets/zenith.png';
-import notewise from '../assets/notewise.png';
+import fs from '../assets/fs.png';
+import notewise from '../assets/notwise.png';
 import { useNavigate } from 'react-router-dom';
 
 // Particle component for mouse-reactive particles
@@ -73,7 +74,7 @@ const Projects = () => {
         "Zero-cost platform with free-tier services",
         "Multiple monetization strategies (freemium, affiliate, content sponsorship)"
       ],
-      image: "",
+      image: fs,
       featured: true,
       demoUrl: "#",
       githubUrl: "#",

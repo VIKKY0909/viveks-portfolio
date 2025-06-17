@@ -129,24 +129,38 @@ const Projects = () => {
         githubUrl: "#",
       },
       {
-        id: 5,
-        title: "Get Inspired (Web Application)",
-        tagline: "Dynamic motivational quote generator with shareable images",
-        description: 
-          "Developed an interactive web app that generates motivational quotes with unique backgrounds. Users can capture images of quotes and share them directly on social media.",
-        technologies: ["HTML5", "CSS3", "JavaScript", "Web3Forms", "Imgur API"],
-        features: [
-          "Random quote generation with Picsum Photos API",
-          "Image capture and download functionality",
-          "Social media sharing (Twitter, Facebook, etc.)",
-          "Contact form with secure submission",
-        ],
-        image: motivation, // Add your own image here
-        demoUrl: "https://get-inspired-ashy.vercel.app/", // Link to the live website
-        githubUrl: "#", // Add the GitHub repo link if applicable
-      },
-    
-    
+  id: 5,
+  title: "Notewise",
+  tagline: "Smart note-taking app for focused productivity",
+  description: "A clean, distraction-free note-taking platform built for speed, simplicity, and efficiency. Perfect for students, developers, and anyone who needs a fast and minimal writing tool.",
+  technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Supabase"],
+  features: [
+    "Create, edit, and manage notes seamlessly",
+    "Minimal UI for focused writing",
+    "Supports dark mode and markdown"
+  ],
+  image: "",  // Add a screenshot or cover image URL if available
+  featured: true,
+  demoUrl: "https://notewise-psi.vercel.app/",
+  githubUrl: "#"
+},
+    {
+  id: 6,
+  title: "ZenithSaga Store",
+  tagline: "Anime-inspired merchandise for true fans",
+  description: "An online store offering unique anime-themed stickers, posters, and accessories. Designed to celebrate otaku culture with high-quality products and vibrant visuals.",
+  technologies: ["Shopify", "HTML/CSS", "JavaScript", "Canva", "Print-on-Demand"],
+  features: [
+    "Clean e-commerce interface",
+    "Custom anime-themed product designs",
+    "Responsive and mobile-friendly",
+    "Secure checkout and product filtering"
+  ],
+  image: "",  // Add a product shot or homepage screenshot
+  featured: true,
+  demoUrl: "https://www.zenithsagastore.com/",
+  githubUrl: "#" // Likely not open-source, can be omitted or left blank
+},
   ];
 
   const handleMouseMove = (e) => {

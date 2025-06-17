@@ -136,7 +136,7 @@ const Projects = () => {
   title: "Notewise",
   tagline: "Smart note-taking app for focused productivity",
   description: "A clean, distraction-free note-taking platform built for speed, simplicity, and efficiency. Perfect for students, developers, and anyone who needs a fast and minimal writing tool.",
-  technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Supabase"],
+  technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React", "AI", "Gemini"],
   features: [
     "Create, edit, and manage notes seamlessly",
     "Minimal UI for focused writing",
@@ -152,7 +152,7 @@ const Projects = () => {
   title: "ZenithSaga Store",
   tagline: "Anime-inspired merchandise for true fans",
   description: "An online store offering unique anime-themed stickers, posters, and accessories. Designed to celebrate otaku culture with high-quality products and vibrant visuals.",
-  technologies: ["Shopify", "HTML/CSS", "JavaScript", "Canva", "Print-on-Demand"],
+  technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
   features: [
     "Clean e-commerce interface",
     "Custom anime-themed product designs",

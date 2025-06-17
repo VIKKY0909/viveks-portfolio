@@ -6,6 +6,8 @@ import tnm from'../assets/TNM.png';
 import schl from '../assets/school.png';
 import motivation from '../assets/motivation.png';
 import port from '../assets/port.png';
+import port from '../assets/zenith.png';
+import port from '../assets/notewise.png';
 import { useNavigate } from 'react-router-dom';
 
 // Particle component for mouse-reactive particles
@@ -139,7 +141,7 @@ const Projects = () => {
     "Minimal UI for focused writing",
     "Supports dark mode and markdown"
   ],
-  image: "",  // Add a screenshot or cover image URL if available
+  image: notewise,  // Add a screenshot or cover image URL if available
   featured: true,
   demoUrl: "https://notewise-psi.vercel.app/",
   githubUrl: "#"
@@ -156,7 +158,7 @@ const Projects = () => {
     "Responsive and mobile-friendly",
     "Secure checkout and product filtering"
   ],
-  image: "",  // Add a product shot or homepage screenshot
+  image: zenith,  // Add a product shot or homepage screenshot
   featured: true,
   demoUrl: "https://www.zenithsagastore.com/",
   githubUrl: "#" // Likely not open-source, can be omitted or left blank
